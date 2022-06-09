@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+</head>
+<body>
+    <h1>Event Delegate</h1>
+    <ul id="list-container">
+        <li class="item">Lorem, ipsum.</li>
+        <li class="item">Sed, cum?</li>
+        <li class="item">Vero, voluptatum.</li>
+        <li class="item">Laborum, saepe?</li>
+        <li class="item">Minus, id?</li>
+        <li class="item">Minima, exercitationem?</li>
+    </ul>
+    <button id="add-item">Add New</button>
+
+    <script>
+        // const items = document.getElementsByClassName('item');
+        // for(const item of items){
+        //     item.addEventListener('click',function(event){
+        //     //easy way
+        //     // document.getElementById('list-container').removeChild(item);
+
+        //     // using event 
+        //         event.target.parentNode.removeChild(event.target)
+        //     });            
+        // }
+        document.getElementById('add-item').addEventListener('click',function(){
+            const li = document.createElement('li');
+            li.innerText = 'Brand New Item';
+            const parent = document.getElementById('list-container');
+            parent.appendChild(li);
+        })
+        document.getElementById('list-container').addEventListener("click",function(){
+            event.target.parentNode.removeChild(event.target);
+        })
+    </script>
+</body>
+</html>
